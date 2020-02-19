@@ -1,12 +1,13 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
-import Radio, { RadioProps } from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { withStyles } from '@material-ui/core/styles'
+import Radio, { RadioProps } from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import { Duration } from '../../../model/duration'
 
 interface Props {
-
+    setDuration: (duration: number) => void
+    duration: number
 }
 
 const GreenRadio = withStyles({
@@ -17,63 +18,34 @@ const GreenRadio = withStyles({
         },
     },
     checked: {},
-})((props: RadioProps) => <Radio color="default" {...props} />);
+})((props: RadioProps) => <Radio color='default' {...props} />)
 
-const TourDuration: React.FC = () => {
-    const [duration, setDuration] = React.useState<number>(120);
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDuration(Number(event.target.value))
-    };
-
+const TourDuration: React.FC<Props> = (props) => {
+    const { duration, setDuration } = props
     return (
-        <RadioGroup style={{  marginLeft:20 }}
-            aria-label="position"
-            name="position"
+        <RadioGroup style={{ marginLeft: 20 }}
+            aria-label='position'
+            name='position'
             value={duration}
-            onChange={handleChange} row>
-            <FormControlLabel
-                value="top"
-                control={
-                    <GreenRadio
-                        checked={duration === 120}
-                        onChange={handleChange}
-                        value={120}
-                        name="radio-button-demo"
-                        inputProps={{ 'aria-label': '120' }}
+            onChange={(e) => { setDuration(Number(e.target.value)) }} row>
+            {
+                Duration.map((durationValue) =>
+                    <FormControlLabel
+                        value='top'
+                        control={
+                            <GreenRadio
+                                checked={duration === durationValue.value}
+                                onChange={(e) => { setDuration(Number(e.target.value)) }}
+                                value={durationValue.value}
+                                name='radio-button-demo'
+                                inputProps={{ 'aria-label': `${durationValue.value}` }}
+                            />
+                        }
+                        label={`${durationValue.hours} hours`}
+                        labelPlacement='end'
                     />
-                }
-                label="2 hours"
-                labelPlacement="end"
-            />
-            <FormControlLabel
-                value="top"
-                control={
-                    <GreenRadio
-                        checked={duration === 180}
-                        onChange={handleChange}
-                        value={180}
-                        name="radio-button-demo"
-                        inputProps={{ 'aria-label': '180' }}
-                    />
-                }
-                label="3 hours"
-                labelPlacement="end"
-            />
-            <FormControlLabel
-                value="top"
-                control={
-                    <GreenRadio
-                        checked={duration === 240}
-                        onChange={handleChange}
-                        value={240}
-                        name="radio-button-demo"
-                        inputProps={{ 'aria-label': '240' }}
-                    />
-                }
-                label="4 hours"
-                labelPlacement="end"
-            />
+                )
+            }
         </RadioGroup>
     )
 }
