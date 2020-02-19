@@ -28,7 +28,7 @@ const LocationSelect: FC<Props> = (props) => {
             <Select style={{ minWidth: 350 }}
                 labelId="location-label"
                 id="location"
-                value={location?.placeID}
+                value={location?.placeID || ''}
                 onChange={handleChange}>
                 {getAvailableLocationsSorted.map((location: Location) =>
                     <MenuItem key={location.placeID} value={location.placeID}>

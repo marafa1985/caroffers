@@ -30,7 +30,7 @@ const TourDuration: React.FC<Props> = (props) => {
             onChange={(e) => { setDuration(Number(e.target.value)) }} row>
             {
                 Duration.map((durationValue) =>
-                    <FormControlLabel
+                    <FormControlLabel key={durationValue.hours}
                         value='top'
                         control={
                             <GreenRadio

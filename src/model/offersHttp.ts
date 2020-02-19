@@ -13,8 +13,7 @@ const headers = {
 
 export const getOfferAPI = async <T>(offerData: OfferData): Promise<T> => {
     const body = JSON.stringify(offerData)
-    const response = await fetch(OFFER_URL, { method: 'POST', headers, body });
-    const data = await response.json();
-    console.log(data)
-    return data;
+    const response = await fetch(OFFER_URL, { method: 'POST', headers, body })
+    const data = await response.json()
+    return data
 }

@@ -14,14 +14,16 @@ interface Props {
 const DateTimeInput: React.FC<Props> = (props) => {
     return (
         <div className='input-container'
-            onClick={props.onClick}        >
+            onClick={props.onClick}        
+            >
             <img src={Calendar} alt='calendar icon' />
             <input type='text'
                 id={props.id}
                 name={props.name}
                 value={props.value?.toString()}
                 placeholder={props.placeholder}
-                onChange={(e) => props.onChange(props.value)} />
+                onChange={(e) => props.onChange(props.value)} 
+                />
         </div>
     )
 }

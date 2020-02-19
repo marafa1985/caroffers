@@ -18,7 +18,6 @@ const SearchPanel: FC = () => {
     const [duration, setDuration] = React.useState<number>(120)
     const getOffers = () => {
         if (location && fromDate) {
-            console.log(fromDate.getTimezoneOffset())
             const offerData: OfferData = {
                 originPlaceId: location?.placeID,
                 selectedStartDate: formateDateToTimeZone(fromDate),
