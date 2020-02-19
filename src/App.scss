@@ -2,6 +2,9 @@ $primary1: #111119;
 $primary: #35353c;
 $button: #ff7d19;
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .logo {
     height: 80px;
     display: flex;
@@ -13,5 +16,11 @@ $button: #ff7d19;
       margin-left: -80px;
       padding: 5px;
     }
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    align-self:center;
   }
 }

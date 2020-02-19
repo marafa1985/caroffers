@@ -9,10 +9,10 @@ import { Location } from '../../model/Location'
 import { getOfferAPI, OfferData } from '../../model/offersHttp'
 import { formateDateToTimeZone } from '../../model/util'
 interface Props {
-
+    setOffers: (data: any) => void
 }
 
-const SearchPanel: FC = () => {
+const SearchPanel: FC<Props> = (props) => {
     const [fromDate, setFromDate] = useState<Date | null>(new Date())
     const [location, setLocation] = useState<Location | undefined>()
     const [duration, setDuration] = React.useState<number>(120)
@@ -24,10 +24,8 @@ const SearchPanel: FC = () => {
                 duration: duration,
                 type: 'DURATION'
             }
-            console.log(getOfferAPI(offerData))
+            props.setOffers(getOfferAPI(offerData))
         }
-
-
     }
     return (
         <Grid style={{ padding: 10 }}

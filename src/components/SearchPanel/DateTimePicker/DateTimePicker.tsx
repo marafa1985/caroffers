@@ -23,6 +23,7 @@ const DateTimePicker: React.FC<Props> = (props) => {
                 id={props.id}
                 showTimeSelect
                 isClearable
+                minDate={new Date()}
                 onChange={date => props.onChange(date)}
             />
         </div>

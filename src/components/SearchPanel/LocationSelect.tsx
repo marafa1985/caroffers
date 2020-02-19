@@ -25,7 +25,7 @@ const LocationSelect: FC<Props> = (props) => {
     return (
         <FormControl >
             <InputLabel id="location-label">Please select nearest location</InputLabel>
-            <Select style={{ minWidth: 350 }}
+            <Select style={{ minWidth: 350,marginRight:10 }}
                 labelId="location-label"
                 id="location"
                 value={location?.placeID || ''}

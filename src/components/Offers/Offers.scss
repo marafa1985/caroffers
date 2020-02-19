@@ -1,0 +1,68 @@
+$primary: #ff7d19;
+.offer-result {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  color: #262626;
+  font-weight: 400;
+  font-size: 32px;
+}
+.offers {
+  display: flex;
+  list-style: none;
+  .offer {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .vehicle-info {
+      list-style: none;
+      padding-top: 5px;
+      .info {
+        display: flex;
+        align-items: center;
+        color: $primary;
+        font-weight: 500;
+        span {
+          width: 120px;
+          color: #000;
+          font-weight: 300;
+        }
+        &::before {
+          font-size: 12px;
+          content: "•";
+          margin-right: 5px;
+          font-size: 20px;
+        }
+      }
+    }
+    .invoice {
+      border: 1px solid #ccc;
+      padding: 10px 15px 10px 15px;
+      .title {
+        padding: 3px 0 14px;
+        text-align: center;
+        text-transform: uppercase;
+        color: $primary;
+        text-decoration: underline;
+      }
+      .invoice-info {
+        list-style: none;
+        padding: 10px;
+        .info {
+          .before-offer {
+            text-decoration: line-through;
+            font-weight: 300;
+          }
+          .after-offer {
+            background: $primary;
+            color: #fff;
+            padding: 15px;
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+  }
+}
