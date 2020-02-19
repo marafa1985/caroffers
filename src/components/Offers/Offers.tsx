@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import './Offers.scss'
 import { Offer } from '../../model/offers'
 
@@ -9,10 +9,11 @@ interface Props {
 const Offers: React.FC<Props> = (props) => {
     const { offers } = props
     return (
-        <div>
+        <div className='result'>
             <div className='offer-result'>{`We found ${offers.length} offers`}</div>
             <ul className='offers'>
                 {
+                    offers.length > 0 ?
                     offers.map((offer) =>
                         <li key={offer.offerIdentifier} className='offer'>
                             <div>
@@ -46,7 +47,8 @@ const Offers: React.FC<Props> = (props) => {
                                 </div>
                             </div>
                         </li>
-                    )
+                    ) :
+                    <p>No offer Found</p>
                 }
             </ul>
         </div>

@@ -16,3 +16,9 @@ export interface Offer {
     offerIdentifier: string
     vehicleType: VehicleType
 }
+
+export interface ErrorMessage {
+    errorConstant: string
+    errorMessage: string
+    requestId: string
+}
